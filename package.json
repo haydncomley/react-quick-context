@@ -1,8 +1,13 @@
 {
   "name": "react-quick-context",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A simple wrapper to quickly and easily create react contexts.",
-  "main": "index.tsx",
+  "main": "index.jsx",
+  "types": "index.d.ts",
+  "src": "index.tsx",
+  "scripts": {
+    "build": "tsc"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/haydncomley/react-quick-context.git"
@@ -14,6 +19,8 @@
   },
   "homepage": "https://github.com/haydncomley/react-quick-context#readme",
   "devDependencies": {
-    "react": "18.2.0"
+    "@types/react": "18.2.56",
+    "react": "18.2.0",
+    "typescript": "5.3.3"
   }
 }

@@ -33,7 +33,7 @@ export const createCtx = <T, >(defaultValue: T) => {
     function useCtx() {
         const c = useContext(ctx);
         if (c === undefined)
-            throw new Error('useCtx must be inside a Provider with a value');
+            throw new Error('Tried to use a context without being inside a valid provider. Double check your component tree.');
         return [ c.state, { set: c.set, update: c.update } ] as const;
     }
 
@@ -43,7 +43,7 @@ export const createCtx = <T, >(defaultValue: T) => {
 export const Providers = ({
     providers,
     children,
-}: PropsWithChildren<{ providers: ((props: PropsWithChildren<unknown>) => React.Element)[] }>) => {
+}: PropsWithChildren<{ providers: ((props: PropsWithChildren<unknown>) => React.ReactElement)[] }>) => {
     const RootProvider = useMemo(() => {
         return ({ children }: PropsWithChildren<unknown>) => providers.reduce((Acc, Provider) => {
             return (
@@ -51,7 +51,6 @@ export const Providers = ({
                     {Acc}
                 </Provider>
             );
-        // eslint-disable-next-line react/jsx-no-useless-fragment
         }, <>{children}</>);
     }, []);
 

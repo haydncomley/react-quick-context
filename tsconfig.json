@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "jsx": "preserve",
+        "declaration": true,
+        "module": "ESNext",
+        "allowSyntheticDefaultImports": true,
+        "lib": ["ES2015"],
+        "moduleResolution": "node"
+    },
+    "include": ["./index.tsx"],
+    "exclude": ["node_modules"]
+  }
+  
